@@ -7,6 +7,7 @@ const logger = require('./logger');
 const express = require('express');
 const app = express();
 
+app.set('view engine', 'pug');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -27,6 +28,10 @@ let genres = [
 	{ id: 2, name: 'Genre 2' },
 	{ id: 3, name: 'Genre 3' }
 ]
+
+app.get('/', (req, res) => {
+	res.render('index', { title: 'My Express App', message: 'Hello' });
+});
 
 // Getting all genres
 app.get('/api/genres', (req, res) => {
