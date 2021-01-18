@@ -1,3 +1,5 @@
 {
-	"name": "My Express App"
+	"database": {
+		"mongodb": "mongodb://localhost/vidly"
+	}
 }
