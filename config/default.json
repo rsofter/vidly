@@ -1,5 +1,6 @@
 {
 	"database": {
 		"mongodb": "mongodb://localhost/vidly"
-	}
+	},
+	"jwtPrivateKey": ""
 }
