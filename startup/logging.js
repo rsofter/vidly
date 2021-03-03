@@ -14,5 +14,5 @@ module.exports = function () {
 	});
 
 	winston.add(new winston.transports.File({ filename: 'logs/logfile.log' }));
-	winston.add(new winston.transports.MongoDB({ db: config.get('database.mongodb') }));
+	winston.add(new winston.transports.MongoDB({ db: config.get('db') }));
 }
