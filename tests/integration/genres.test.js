@@ -8,7 +8,7 @@ describe('/api/genres', () => {
 	beforeEach(() => { server = require('../../index'); });
 	afterEach(async () => {
 		await Genre.remove({});
-		server.close();
+		await server.close();
 	});
 
 	describe('GET /', () => {
@@ -56,8 +56,8 @@ describe('/api/genres', () => {
 		let token;
 		let name;
 
-		const exec = async () => (
-			await request(server)
+		const exec = () => (
+			request(server)
 				.post('/api/genres')
 				.set('x-auth-token', token)
 				.send({ name })
@@ -114,8 +114,8 @@ describe('/api/genres', () => {
 		let genre;
 		let id;
 
-		const exec = async () => (
-			await request(server)
+		const exec = () => (
+			request(server)
 				.put('/api/genres/' + id)
 				.set('x-auth-token', token)
 				.send({ name: newName })
@@ -185,12 +185,12 @@ describe('/api/genres', () => {
 		let genre;
 		let id;
 
-		const exec = async () => {
-			return await request(server)
+		const exec = () => (
+			request(server)
 				.delete('/api/genres/' + id)
 				.set('x-auth-token', token)
-				.send();
-		}
+				.send()
+		);
 
 		beforeEach(async () => {
 			// Before each test we need to create a genre and 
